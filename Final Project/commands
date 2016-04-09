@@ -1,0 +1,29 @@
+==========IP============
+gui,fsm: 132.72.104.230
+right:	 132.72.104.227
+middle:  132.72.104.228
+left:	 132.72.104.225
+
+-define (LeftServer,'ant_server1@132.72.104.225').
+-define (MiddleServer,'ant_server2@132.72.104.228').
+-define (RightServer,'ant_server3@132.72.104.227').
+-define (GuiServer,'ant_gui_server@132.72.104.230').
+-define (AntFsm,'ant_fsm@132.72.104.230').  				%% same ip as ip of the running computer
+
+====================Start Shell========================
+erl -setcookie pass -name ant_gui_server@132.72.104.230
+erl -setcookie pass -name ant_fsm@132.72.104.230
+erl -setcookie pass -name ant_server1@132.72.104.225
+erl -setcookie pass -name ant_server2@132.72.104.228
+erl -setcookie pass -name ant_server3@132.72.104.227
+
+=======================Compile=========================
+c(starter).
+c(ant_gui_server).
+c(ant_fsm).
+c(ant_server).
+
+=======Run=======
+starter:start().
+
+cd /users/cse_users/avidori/Downloads/gui
